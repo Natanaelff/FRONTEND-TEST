@@ -1,0 +1,33 @@
+.item {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  border: 1px solid blue;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 20px;
+  border: 1px solid blue;
+}
+
+@media (min-width: 1000px) {
+  .wrapper {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.blue {
+  background-color: blue;
+}
+
+.red {
+  background: red;
+}
+
+.black {
+  background-color: black;
+}

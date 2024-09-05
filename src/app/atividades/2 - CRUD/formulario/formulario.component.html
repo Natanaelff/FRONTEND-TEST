@@ -1,0 +1,44 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" style="display: flex; flex-direction: column; gap: 20px;">
+  <mat-form-field appearance="fill">
+    <mat-label>Nome</mat-label>
+    <input formControlName="nome" type="text" matInput placeholder="Digite algo" required minlength="3" maxlength="30">
+    <mat-error *ngIf="form.get('nome')?.invalid && form.get('nome')?.touched">
+      Nome é obrigatório e deve ter entre 3 e 30 caracteres.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Email</mat-label>
+    <input formControlName="email" type="email" matInput placeholder="Digite algo" required />
+    <mat-error *ngIf="form.get('email')?.invalid && form.get('email')?.touched">
+      Email é obrigatório e deve ser um email válido.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Senha</mat-label>
+    <input formControlName="senha" type="password" matInput placeholder="Digite algo" required />
+    <mat-error *ngIf="form.get('senha')?.invalid && form.get('senha')?.touched">
+      Senha é obrigatória.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>CEP</mat-label>
+    <input formControlName="cep" type="text" matInput placeholder="Digite algo" (blur)="buscarCep()" required />
+    <mat-error *ngIf="form.get('cep')?.invalid && form.get('cep')?.touched">
+      CEP é obrigatório e deve ter 8 dígitos.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Logradouro</mat-label>
+    <input formControlName="logradouro" type="text" matInput placeholder="Digite algo" readonly />
+    <mat-error *ngIf="form.get('logradouro')?.invalid && form.get('logradouro')?.touched">
+      Logradouro é obrigatório.
+    </mat-error>
+  </mat-form-field>
+
+  <button mat-raised-button type="submit" [disabled]="form.invalid">Salvar</button>
+  <button mat-raised-button mat-dialog-close>Cancelar</button>
+</form>
